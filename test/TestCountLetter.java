@@ -69,7 +69,7 @@ public class TestCountLetter {
             methodCountLetter.setAccessible(true);
 
             System.out.println("Senha: " + password + " - Tipo de caracter: " + type + " - Resultado esperado: " + result);
-            System.out.println("Resultado obtido: " + methodCountLetter.invoke(CheckStrength.class, password, type));//CheckStrength.countLetter(password, type));
+            System.out.println("Resultado obtido: " + methodCountLetter.invoke(CheckStrength.class, password, type));
 
             assertEquals(result, methodCountLetter.invoke(CheckStrength.class, password, type));
             
