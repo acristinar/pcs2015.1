@@ -41,7 +41,20 @@ public class TestPassword {
             { "0123", "EASY", 0 },
             { "a", "EASY", 0 },
             { "aaa", "EASY", 0 },
-            
+            { "abcde(", "EASY", 1 },
+            { "abcdeA", "EASY", 2 },
+            { "abcdeAB", "EASY", 3 },
+            { "aAB1(", "MIDIUM", 4 },
+            { "abcdeA(", "MIDIUM", 5 },
+            { "abcdeA(*", "MIDIUM", 6 },
+            { "8a5bB*!", "STRONG", 7 },
+            { "8a5bB*!-", "STRONG", 8 },
+            { "8a5bB*!-@", "STRONG", 9 },
+            { "8a5bB0*!-@", "VERY_STRONG", 10 },
+            { "8a5bBCDA1*!-", "VERY_STRONG", 11 },
+            { "8a5beBCDA1*!-", "VERY_STRONG", 12 },
+            { "8a5bBCDA1A@m*!-?", "EXTREMELY_STRONG", 13 },
+            { "8a5bBC DA1A @m*!-?", "EXTREMELY_STRONG", 14 },
         }
        );
     }
