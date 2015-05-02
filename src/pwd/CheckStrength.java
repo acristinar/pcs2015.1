@@ -236,28 +236,28 @@ public class CheckStrength {
 	 * @param passwd
 	 * @return
 	 */
-	public static LEVEL getPasswordLevel(String passwd) {
+	public static String getPasswordLevel(String passwd) {
 		int level = checkPasswordStrength(passwd);
 		switch (level) {
 			case 0:
 			case 1:
 			case 2:
 			case 3:
-				return LEVEL.EASY;
+				return LEVEL.EASY.name();
 			case 4:
 			case 5:
 			case 6:
-				return LEVEL.MIDIUM;
+				return LEVEL.MIDIUM.name();
 			case 7:
 			case 8:
 			case 9:
-				return LEVEL.STRONG;
+				return LEVEL.STRONG.name();
 			case 10:
 			case 11:
 			case 12:
-				return LEVEL.VERY_STRONG;
+				return LEVEL.VERY_STRONG.name();
 			default:
-				return LEVEL.EXTREMELY_STRONG;
+				return LEVEL.EXTREMELY_STRONG.name();
 		}
 	}
 

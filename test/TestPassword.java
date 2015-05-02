@@ -22,18 +22,26 @@ import pwd.CheckStrength;
 public class TestPassword {
     private final String password;
     private final String result;
+    private final Object strength;
       
-    public TestPassword(String password, String result) {
+    public TestPassword(String password, String result, Object strength) {
         this.password = password;
+        this.strength = strength;
         this.result = result;
     }
     
     @Parameters
     public static Collection<Object[]> inicializar() {
         return Arrays.asList(new Object[][] {
-            { "    ", "password is empty" },
-            { "", "password is empty" },
-            { "null", "password is empty" },
+            { "    ", "password is empty", null },
+            { "", "password is empty", null },
+            { "null", "password is empty", null },
+            { "1", "EASY", 0 },
+            { "0", "EASY", 0 },
+            { "0123", "EASY", 0 },
+            { "a", "EASY", 0 },
+            { "aaa", "EASY", 0 },
+            
         }
        );
     }
@@ -41,9 +49,15 @@ public class TestPassword {
     @Test
     public void teste() throws Exception {
         try {
-        System.out.println("Senha: " + password + " - Resultado esperado: " + result);
-        assertEquals(result, CheckStrength.getPasswordLevel(password));
-        }  catch(Exception e) {
+            System.out.println("Senha: " + password + " - Classificação esperado: " + result);
+            System.out.println("Classificação obtido: " + CheckStrength.getPasswordLevel(password));
+            System.out.println("Pontuação esperado: " + strength + " - Pontuação obtido: " + CheckStrength.checkPasswordStrength(password));
+           
+            assertEquals(result, CheckStrength.getPasswordLevel(password));
+            assertEquals(strength, CheckStrength.checkPasswordStrength(password));
+       
+        } catch(Exception e) {
+            System.out.println("Classificação obtido: " + e.getMessage());
             assertEquals(result, e.getMessage());
         }
         
