@@ -5,6 +5,7 @@
  */
 package pwd;
 
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Collection;
 import org.junit.Test;
@@ -58,8 +59,13 @@ public class CheckStrengthTest {
     @Test
     public void test() throws Exception {
         try {
+            Class params[] = {char.class};
+            Method methodCheckCharacterType = CheckStrength.class.getDeclaredMethod("checkCharacterType", params);
+            methodCheckCharacterType.setAccessible(true);
+            
             System.out.println("Caracter: " + c + " - Resultado esperado: " + result);
-            assertEquals(result, CheckStrength.checkCharacterType(c));
+            System.out.println("Resultado obtido: " + methodCheckCharacterType.invoke(CheckStrength.class, c));
+            assertEquals(result, methodCheckCharacterType.invoke(CheckStrength.class, c));
         }catch(Exception e){
             assertEquals(result, e.getMessage());
         }

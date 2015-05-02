@@ -33,7 +33,7 @@ public class CheckStrength {
 	 * @param c
 	 * @return
 	 */
-	public static int checkCharacterType(char c) {
+	private static int checkCharacterType(char c) {
 		if (c >= 48 && c <= 57) {
 			return NUM;
 		}
