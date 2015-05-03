@@ -4,41 +4,56 @@
  * and open the template in the editor.
  */
 
+import java.util.Arrays;
+import java.util.Collection;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+import static pwd.StringUtils.isCharEqual;
 
 /**
  *
  * @author Amanda
  */
+@RunWith(Parameterized.class)
 public class TestIsCharEqual {
     
-    public TestIsCharEqual() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
+    String str;
+    boolean result;
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    public TestIsCharEqual(String str, boolean result) {
+        this.str = str;
+        this.result = result;
+    }
+    
+    @Parameters
+    public static Collection<Object[]> inicializar() {
+        return Arrays.asList(new Object[][] {
+            {"aaa", true},
+            {"aab", false},
+            {"baa", false},
+            {"abab",false},
+        }
+       );
+    }
+    
+    @Test
+    public void teste() throws Exception {
+         try {
+            System.out.println("String: " + str + " - Resultado esperado: " + result);
+            System.out.println("Resultado obtido: " + isCharEqual(str));
+           
+            assertEquals(result, isCharEqual(str));
+       
+        } catch(Exception e) {
+            System.out.println("Resultado obtido: " + e.getMessage());
+            assertEquals(result, e.getMessage());
+        }
+    }
 }
