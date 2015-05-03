@@ -45,6 +45,8 @@ public class CheckStrength {
 		}
 		return OTHER_CHAR;
 	}
+        
+        
 
 	/**
 	 * Count password's number by different type
