@@ -33,14 +33,14 @@ public class CheckStrength {
 	 * @param c
 	 * @return
 	 */
-	private static int checkCharacterType(char c) {
-		if (c >= 48 && c <= 57) {
+	public static int checkCharacterType(char c) {
+		if (Character.isDigit(c)) {
 			return NUM;
 		}
-		if (c >= 65 && c <= 90) {
+		if (Character.isUpperCase(c)) {
 			return CAPITAL_LETTER;
 		}
-		if (c >= 97 && c <= 122) {
+		if (Character.isLowerCase(c)) {
 			return SMALL_LETTER;
 		}
 		return OTHER_CHAR;
