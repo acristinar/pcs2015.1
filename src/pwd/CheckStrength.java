@@ -106,6 +106,12 @@ public class CheckStrength {
             return level;
 	}
 
+        /**
+	 * Increase password points
+	 * 
+	 * @param length, level
+	 * @return level
+	 */
         private static int increasePoints(int length, int level) {
             if (quantNum > 0) {
                 level++;
@@ -170,6 +176,12 @@ public class CheckStrength {
             return level;
         }
         
+        /**
+	 * Decrease password points
+	 * 
+	 * @param passwd, length, level
+	 * @return level
+	 */
         private static int decreasePoints(String passwd, int length, int level) {
             
             level = simpleSequence(passwd, level);
@@ -178,10 +190,10 @@ public class CheckStrength {
 		level--;
             }
             if (length % 2 == 0) { // aaabbb)
-                level = sequenceRepeatedPair(length, passwd, level);
+                level = pairRepeatSequence(length, passwd, level);
             }
             if (length % 3 == 0) { // ababab
-                level = sequenceRepeatedOdd(length, passwd, level);
+                level = oddRepeatSequence(length, passwd, level);
             }
             if (StringUtils.isNumeric(passwd) && length >= 6) { // 19881010 or 881010
                 level = date(passwd, length, level);
@@ -207,6 +219,12 @@ public class CheckStrength {
             return level;
         }
 
+        /**
+	 * Compare password with words from the dictionary
+	 * 
+	 * @param passwd, level
+	 * @return level
+	 */
         private static int wordDictionary(String passwd, int level) {
            for (int i = 0; i < DICTIONARY.length; i++) {
                 if (passwd.equals(DICTIONARY[i]) || DICTIONARY[i].indexOf(passwd) >= 0) {
@@ -217,6 +235,12 @@ public class CheckStrength {
             return level;
         }
 
+        /**
+	 * Verifies if password is a date
+	 * 
+	 * @param passwd, lenth, level
+	 * @return level
+	 */
         private static int date(String passwd, int length, int level) throws NumberFormatException {
             int year = 0;
             if (length == 8 || length == 6) {
@@ -231,7 +255,13 @@ public class CheckStrength {
             return level;
         }
 
-        private static int sequenceRepeatedOdd(int length, String passwd, int level) {
+        /**
+	 * Verifies if password is an odd repeat sequence
+	 * 
+	 * @param lenth, passwd, level
+	 * @return level
+	 */
+        private static int oddRepeatSequence(int length, String passwd, int level) {
             String part1 = passwd.substring(0, length / 3);
             String part2 = passwd.substring(length / 3, length / 3 * 2);
             String part3 = passwd.substring(length / 3 * 2);
@@ -241,7 +271,13 @@ public class CheckStrength {
             return level;
         }
 
-        private static int sequenceRepeatedPair(int length, String passwd, int level) {
+        /**
+	 * Verifies if password is a pair repeat sequence
+	 * 
+	 * @param lenth, passwd, level
+	 * @return level
+	 */
+        private static int pairRepeatSequence(int length, String passwd, int level) {
             String part1 = passwd.substring(0, length / 2);
             String part2 = passwd.substring(length / 2);
             if (part1.equals(part2)) {
@@ -254,6 +290,12 @@ public class CheckStrength {
             return level;
         }
 
+        /**
+	 * Verifies if password is a common sequence
+	 * 
+	 * @param passwd, level
+	 * @return level
+	 */
         private static int simpleSequence(String passwd, int level) {
             if ("abcdefghijklmnopqrstuvwxyz".indexOf(passwd) > 0 || "ABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(passwd) > 0) {
                 level--;
