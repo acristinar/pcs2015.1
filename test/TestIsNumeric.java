@@ -15,19 +15,19 @@ import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import static pwd.StringUtils.isCharEqual;
+import static pwd.StringUtils.isNumeric;
 
 /**
  *
  * @author Amanda
  */
 @RunWith(Parameterized.class)
-public class TestIsCharEqual {
+public class TestIsNumeric {
     
     String str;
     boolean result;
 
-    public TestIsCharEqual(String str, boolean result) {
+    public TestIsNumeric(String str, boolean result) {
         this.str = str;
         this.result = result;
     }
@@ -35,10 +35,10 @@ public class TestIsCharEqual {
     @Parameters
     public static Collection<Object[]> inicializar() {
         return Arrays.asList(new Object[][] {
-            {"aaa", true},
-            {"aab", false},
-            {"baa", false},
-            {"abab",false},
+            {"597413", true},
+            {"a1111", false},
+            {"111&1a", false},
+            {"0%16",false},
         }
        );
     }
@@ -47,13 +47,14 @@ public class TestIsCharEqual {
     public void teste() throws Exception {
          try {
             System.out.println("String: " + str + " - Resultado esperado: " + result);
-            System.out.println("Resultado obtido: " + isCharEqual(str));
+            System.out.println("Resultado obtido: " + isNumeric(str));
            
-            assertEquals(result, isCharEqual(str));
+            assertEquals(result, isNumeric(str));
        
         } catch(Exception e) {
             System.out.println("Resultado obtido: " + e.getMessage());
             assertEquals(result, e.getMessage());
         }
     }
+
 }
