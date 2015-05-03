@@ -19,7 +19,7 @@ public class CheckStrength {
 		EASY, MIDIUM, STRONG, VERY_STRONG, EXTREMELY_STRONG
 	}
 
-        private static final Map<String, Integer> quantityEachLetter = new HashMap<>();
+        private static Map<String, Integer> letter = new HashMap<>();
         
         private static int quantNum;
         private static int quantSmallLetter;
@@ -33,59 +33,6 @@ public class CheckStrength {
 			"1314520", "a1b2c3", "123qwe", "aaa111", "qweasd", "admin", "passwd" };
 
 	/**
-	 * Check character's type, includes num, capital letter, small letter and other character.
-	 * 
-	 * @param c
-	 * @return
-	 */
-	public static String checkCharacterType(char c) {
-		if (Character.isDigit(c)) {
-			return "NUM";
-		}
-		if (Character.isUpperCase(c)) {
-			return "CAPITAL_LETTER";
-		}
-		if (Character.isLowerCase(c)) {
-			return "SMALL_LETTER";
-		}
-		return "OTHER_CHAR";
-	}
-
-	/**
-	 * Quantity of password's number by different type
-	 * 
-	 * @param passwd
-	 */
-	private static void quantLetter(String passwd) {
-            quantityEachLetter.put("NUM", 0);
-            quantityEachLetter.put("CAPITAL_LETTER", 0);
-            quantityEachLetter.put("SMALL_LETTER", 0);
-            quantityEachLetter.put("OTHER_CHAR", 0);
-            
-            if (null != passwd && passwd.length() > 0) {
-		countLetter(passwd);
-            }
-        }
-        
-        /**
-	 * Count password's number by different type
-	 * 
-	 * @param passwd
-	 */
-        private static void countLetter(String passwd) {
-            Integer count;
-            for (char c : passwd.toCharArray()) {
-                String type = checkCharacterType(c);
-                count = quantityEachLetter.get(type) + 1;
-                quantityEachLetter.put(type, count);
-            }
-            quantNum = quantityEachLetter.get("NUM");
-            quantSmallLetter = quantityEachLetter.get("SMALL_LETTER");
-            quantCapitalLetter = quantityEachLetter.get("CAPITAL_LETTER");
-            quantOtherChar = quantityEachLetter.get("OTHER_CHAR");
-        }
-
-	/**
 	 * Check password's strength
 	 * 
 	 * @param passwd
@@ -95,14 +42,17 @@ public class CheckStrength {
             if (StringUtils.equalsNull(passwd)) {
 		throw new IllegalArgumentException("password is empty");
             }
-		
+	  
+            letter = StringUtils.quantLetter(passwd);
+            quantNum = letter.get("NUM");
+            quantSmallLetter = letter.get("SMALL_LETTER");
+            quantCapitalLetter = letter.get("CAPITAL_LETTER");
+            quantOtherChar = letter.get("OTHER_CHAR");
+            
             int length = passwd.length();
             int level = 0;
-                
-            quantLetter(passwd);
             level = increasePoints(length, level);
             level = decreasePoints(passwd, length, level);
-
             return level;
 	}
 
