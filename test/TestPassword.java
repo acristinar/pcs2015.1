@@ -50,7 +50,7 @@ public class TestPassword {
             { "qwer", "EASY", 0 },
             { "asdfghjkl", "EASY", 0 },
             { "zxcvbnm", "EASY", 0 },
-            { "iloveyou", "EASY", 0 },
+            { "iloveyou", "EASY", 0 }, 
             { "abc123", "EASY", 1 },
             { "abcde(", "EASY", 1 },
             { "abcdefghijklmno", "EASY", 1 },
@@ -76,17 +76,19 @@ public class TestPassword {
     @Test
     public void teste() throws Exception {
         try {
+            int pontuacaoObitdo = CheckStrength.checkPasswordStrength(password);
+            String classificaçãoObtido = CheckStrength.getPasswordLevel(password);
+            
             System.out.println("Senha: " + password + " - Classificação esperado: " + result);
-            System.out.println("Classificação obtido: " + CheckStrength.getPasswordLevel(password));
-            System.out.println("Pontuação esperado: " + strength + " - Pontuação obtido: " + CheckStrength.checkPasswordStrength(password));
+            System.out.println("Classificação obtido: " + classificaçãoObtido);
+            System.out.println("Pontuação esperado: " + strength + " - Pontuação obtido: " + pontuacaoObitdo);
            
-            assertEquals(result, CheckStrength.getPasswordLevel(password));
-            assertEquals(strength, CheckStrength.checkPasswordStrength(password));
-       
+            assertEquals(result, classificaçãoObtido);
+            assertEquals(strength, pontuacaoObitdo);
         } catch(Exception e) {
             System.out.println("Classificação obtido: " + e.getMessage());
             assertEquals(result, e.getMessage());
-        }
-        
+        } 
+       
     }
 }
