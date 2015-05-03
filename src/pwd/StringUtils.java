@@ -8,8 +8,8 @@ import java.util.Map;
  */
 public class StringUtils {
 
-    private final static int[] SIZE_TABLE = { 9, 99, 999, 9999, 99999, 999999, 9999999, 99999999, 999999999,
-                    Integer.MAX_VALUE };
+    //private final static int[] SIZE_TABLE = { 9, 99, 999, 9999, 99999, 999999, 9999999, 99999999, 999999999,
+      //              Integer.MAX_VALUE };
     
      private static Map<String, Integer> quantityEachLetter = new HashMap<>();
     
@@ -39,15 +39,15 @@ public class StringUtils {
      * @return
      */
     public static Map quantLetter(String passwd) {
-            quantityEachLetter.put("NUM", 0);
-            quantityEachLetter.put("CAPITAL_LETTER", 0);
-            quantityEachLetter.put("SMALL_LETTER", 0);
-            quantityEachLetter.put("OTHER_CHAR", 0);
-            
-            if (null != passwd && passwd.length() > 0) {
-		quantityEachLetter = countLetter(passwd);
-            }
-            return quantityEachLetter;
+        quantityEachLetter.put("NUM", 0);
+        quantityEachLetter.put("CAPITAL_LETTER", 0);
+        quantityEachLetter.put("SMALL_LETTER", 0);
+        quantityEachLetter.put("OTHER_CHAR", 0);
+
+        if (!equalsNull(passwd)) {
+            quantityEachLetter = countLetter(passwd);
+        }
+        return quantityEachLetter;
     }
         
     /**
@@ -56,14 +56,23 @@ public class StringUtils {
      * @param passwd
      */
      private static Map countLetter(String passwd) {
-            Integer count;
-            for (char c : passwd.toCharArray()) {
-                String type = checkCharacterType(c);
-                count = quantityEachLetter.get(type) + 1;
-                quantityEachLetter.put(type, count);
-            }
-            return quantityEachLetter;
+        Integer count;
+        for (char c : passwd.toCharArray()) {
+            String type = checkCharacterType(c);
+            count = quantityEachLetter.get(type) + 1;
+            quantityEachLetter.put(type, count);
+        }
+        return quantityEachLetter;
     }
+     
+    public static byte[] getDigits(int number) {  
+        char[] caracteres = String.valueOf(number).toCharArray();  
+        byte[] digits = new byte[caracteres.length];  
+        for (int i = 0; i < digits.length; i++) {  
+            digits[i] = Byte.parseByte(String.valueOf(caracteres[i]));  
+        }  
+        return digits;  
+    }  
 
     /**
      * calculate the size of an integer number
@@ -71,11 +80,11 @@ public class StringUtils {
      * @param x
      * @return
      */
-    public static int sizeOfInt(int x) {
-            for (int i = 0;; i++)
-                    if (x <= SIZE_TABLE[i]) {
-                            return i + 1;
-                    }
+    public static int sizeOfInt(int number) {
+        int size;
+        byte[] digits = getDigits(number);
+        size = digits.length;
+        return size; 
     }
 
     /**

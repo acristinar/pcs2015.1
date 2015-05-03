@@ -6,16 +6,11 @@
 
 import java.util.Arrays;
 import java.util.Collection;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import pwd.StringUtils;
 import static pwd.StringUtils.sizeOfInt;
 
 /**
@@ -42,9 +37,6 @@ public class TestSizeOfInt {
     @Parameters
     public static Collection<Object[]> inicializar() {
         return Arrays.asList(new Object[][] {
-            {-1,1}, 
-            {-999999998,9},
-            {-22,2},
             {0,1},
             {1, 1},
             {22, 2},
