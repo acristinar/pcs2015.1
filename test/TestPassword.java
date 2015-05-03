@@ -57,7 +57,7 @@ public class TestPassword {
             { "abcdeA", "EASY", 2 },
             { "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "EASY", 2 },
             { "adobe123", "EASY", 3 },
-            { "abcdeAB", "EASY", 3 },
+            { "abcdeAB", "EASY", 3 }, 
             { "aAB1(", "MIDIUM", 4 },
             { "abcdeA(", "MIDIUM", 5 },
             { "abcdeA(*", "MIDIUM", 6 },
@@ -68,7 +68,7 @@ public class TestPassword {
             { "8a5bBCDA1*!-", "VERY_STRONG", 11 },
             { "8a5beBCDA1*!-", "VERY_STRONG", 12 },
             { "8a5bBCDA1A@m*!-?", "EXTREMELY_STRONG", 13 },
-            { "8a5bBC DA1A @m*!-?", "EXTREMELY_STRONG", 14 },
+            { "8a5bBC DA1A @m*!-?", "EXTREMELY_STRONG", 14 }, 
         }
        );
     }
@@ -85,6 +85,7 @@ public class TestPassword {
            
             assertEquals(result, classificaçãoObtido);
             assertEquals(strength, pontuacaoObitdo);
+            
         } catch(Exception e) {
             System.out.println("Classificação obtido: " + e.getMessage());
             assertEquals(result, e.getMessage());
