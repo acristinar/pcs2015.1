@@ -42,6 +42,7 @@ public class TestPassword {
             { "09876", "EASY", 0 },
             { "a", "EASY", 0 },
             { "aaabbb", "EASY", 0 },
+            { "aaaaa", "EASY", 0 },
             { "123123", "EASY", 0 },
             { "ababab", "EASY", 0 },
             { "20151010", "EASY", 0 },
