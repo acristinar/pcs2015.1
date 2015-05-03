@@ -18,7 +18,7 @@ public class CheckStrength {
 	public enum LEVEL {
 		EASY, MIDIUM, STRONG, VERY_STRONG, EXTREMELY_STRONG
 	}
-
+        
         private static final Map<String, Integer> quantityEachLetter = new HashMap<>();
         
         private static int quantNum;
@@ -62,7 +62,7 @@ public class CheckStrength {
             quantityEachLetter.put("SMALL_LETTER", 0);
             quantityEachLetter.put("OTHER_CHAR", 0);
             
-            if (null != passwd && passwd.length() > 0) {
+            if (!StringUtils.equalsNull(passwd)) {
 		countLetter(passwd);
             }
         }
