@@ -1,5 +1,8 @@
 package pwd;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * {@code StringUtils} contains static methods which operate on a string.
  */
@@ -7,6 +10,60 @@ public class StringUtils {
 
     private final static int[] SIZE_TABLE = { 9, 99, 999, 9999, 99999, 999999, 9999999, 99999999, 999999999,
                     Integer.MAX_VALUE };
+    
+     private static Map<String, Integer> quantityEachLetter = new HashMap<>();
+    
+    /**
+     * Check character's type, includes num, capital letter, small letter and other character.
+     * 
+     * @param c
+     * @return
+     */
+    public static String checkCharacterType(char c) {
+            if (Character.isDigit(c)) {
+                return "NUM";
+            }
+            if (Character.isUpperCase(c)) {
+                return "CAPITAL_LETTER";
+            }
+            if (Character.isLowerCase(c)) {
+                return "SMALL_LETTER";
+            }
+            return "OTHER_CHAR";
+    }
+
+    /**
+     * Quantity of password's number by different type
+     * 
+     * @param passwd
+     * @return
+     */
+    public static Map quantLetter(String passwd) {
+            quantityEachLetter.put("NUM", 0);
+            quantityEachLetter.put("CAPITAL_LETTER", 0);
+            quantityEachLetter.put("SMALL_LETTER", 0);
+            quantityEachLetter.put("OTHER_CHAR", 0);
+            
+            if (null != passwd && passwd.length() > 0) {
+		quantityEachLetter = countLetter(passwd);
+            }
+            return quantityEachLetter;
+    }
+        
+    /**
+     * Count password's number by different type
+     * 
+     * @param passwd
+     */
+     private static Map countLetter(String passwd) {
+            Integer count;
+            for (char c : passwd.toCharArray()) {
+                String type = checkCharacterType(c);
+                count = quantityEachLetter.get(type) + 1;
+                quantityEachLetter.put(type, count);
+            }
+            return quantityEachLetter;
+    }
 
     /**
      * calculate the size of an integer number
