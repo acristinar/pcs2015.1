@@ -8,17 +8,8 @@ import java.util.Map;
  */
 public class StringUtils {
 
-    //private final static int[] SIZE_TABLE = { 9, 99, 999, 9999, 99999, 999999, 9999999, 99999999, 999999999,
-      //              Integer.MAX_VALUE };
+    private static Map<String, Integer> quantityEachLetter = new HashMap<>();
     
-     private static Map<String, Integer> quantityEachLetter = new HashMap<>();
-    
-    /**
-     * Check character's type, includes num, capital letter, small letter and other character.
-     * 
-     * @param c
-     * @return
-     */
     public static String checkCharacterType(char c) {
             if (Character.isDigit(c)) {
                 return "NUM";
@@ -34,9 +25,6 @@ public class StringUtils {
 
     /**
      * Quantity of password's number by different type
-     * 
-     * @param passwd
-     * @return
      */
     public static Map quantLetter(String passwd) {
         quantityEachLetter.put("NUM", 0);
@@ -52,8 +40,6 @@ public class StringUtils {
         
     /**
      * Count password's number by different type
-     * 
-     * @param passwd
      */
      private static Map countLetter(String passwd) {
         Integer count;
@@ -76,9 +62,6 @@ public class StringUtils {
 
     /**
      * calculate the size of an integer number
-     * 
-     * @param x
-     * @return
      */
     public static int sizeOfInt(int number) {
         int size;
@@ -89,9 +72,6 @@ public class StringUtils {
 
     /**
      * Judge whether each character of the string equals
-     * 
-     * @param str
-     * @return
      */
     public static boolean isCharEqual(String str) {
             return str.replace(str.charAt(0), ' ').trim().length() == 0;
@@ -99,9 +79,6 @@ public class StringUtils {
 
     /**
      * Determines if the string is a digit
-     * 
-     * @param str
-     * @return
      */
     public static boolean isNumeric(String str) {
             for (int i = str.length(); --i >= 0;) {
@@ -114,9 +91,6 @@ public class StringUtils {
 
     /**
      * Judge whether the string is whitespace, empty ("") or null.
-     * 
-     * @param str
-     * @return
      */
     public static boolean equalsNull(String str) {
             int strLen;

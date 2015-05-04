@@ -87,7 +87,9 @@ public class TestPassword {
             assertEquals(strength, pontuacaoObitdo);
             
         } catch(Exception e) {
+            System.out.println("Senha: " + password + " - Classificação esperado: " + result);
             System.out.println("Classificação obtido: " + e.getMessage());
+            
             assertEquals(result, e.getMessage());
         } 
        
