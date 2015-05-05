@@ -11,29 +11,29 @@ public class StringUtils {
     private static Map<String, Integer> quantityEachLetter = new HashMap<>();
     
     public static String checkCharacterType(char c) {
-            if (Character.isDigit(c)) {
-                return "NUM";
-            }
-            if (Character.isUpperCase(c)) {
-                return "CAPITAL_LETTER";
-            }
-            if (Character.isLowerCase(c)) {
-                return "SMALL_LETTER";
-            }
-            return "OTHER_CHAR";
+        if (Character.isDigit(c)) {
+            return "NUM";
+        }
+        if (Character.isUpperCase(c)) {
+            return "CAPITAL_LETTER";
+        }
+        if (Character.isLowerCase(c)) {
+            return "SMALL_LETTER";
+        }
+        return "OTHER_CHAR";
     }
 
     /**
      * Quantity of password's number by different type
      */
-    public static Map quantLetter(String passwd) {
+    public static Map quantLetter(String password) {
         quantityEachLetter.put("NUM", 0);
         quantityEachLetter.put("CAPITAL_LETTER", 0);
         quantityEachLetter.put("SMALL_LETTER", 0);
         quantityEachLetter.put("OTHER_CHAR", 0);
 
-        if (!equalsNull(passwd)) {
-            quantityEachLetter = countLetter(passwd);
+        if (!verifyIsNull(password)) {
+            quantityEachLetter = countLetter(password);
         }
         return quantityEachLetter;
     }
@@ -41,9 +41,9 @@ public class StringUtils {
     /**
      * Count password's number by different type
      */
-     private static Map countLetter(String passwd) {
+     private static Map countLetter(String password) {
         Integer count;
-        for (char c : passwd.toCharArray()) {
+        for (char c : password.toCharArray()) {
             String type = checkCharacterType(c);
             count = quantityEachLetter.get(type) + 1;
             quantityEachLetter.put(type, count);
@@ -63,7 +63,7 @@ public class StringUtils {
     /**
      * calculate the size of an integer number
      */
-    public static int sizeOfInt(int number) {
+    public static int verifySizeNumber(int number) {
         int size;
         byte[] digits = getDigits(number);
         size = digits.length;
@@ -73,36 +73,36 @@ public class StringUtils {
     /**
      * Judge whether each character of the string equals
      */
-    public static boolean isCharEqual(String str) {
-            return str.replace(str.charAt(0), ' ').trim().length() == 0;
+    public static boolean verifyIsChar(String sequence) {
+        return sequence.replace(sequence.charAt(0), ' ').trim().length() == 0;
     }
 
     /**
      * Determines if the string is a digit
      */
-    public static boolean isNumeric(String str) {
-            for (int i = str.length(); --i >= 0;) {
-                    if (!Character.isDigit(str.charAt(i))) {
-                            return false;
-                    }
+    public static boolean verifyIsNumeric(String sequence) {
+        for (int i = sequence.length(); --i >= 0;) {
+            if (!Character.isDigit(sequence.charAt(i))) {
+                return false;
             }
-            return true;
+        }
+        return true;
     }
 
     /**
      * Judge whether the string is whitespace, empty ("") or null.
      */
-    public static boolean equalsNull(String str) {
-            int strLen;
-            if (str == null || (strLen = str.length()) == 0 || str.equalsIgnoreCase("null")) {
-                    return true;
-            }
-            for (int i = 0; i < strLen; i++) {
-                    if ((Character.isWhitespace(str.charAt(i)) == false)) {
-                            return false;
-                    }
-            }
+    public static boolean verifyIsNull(String sequence) {
+        int sizeSequence;
+        if (sequence == null || (sizeSequence = sequence.length()) == 0 || sequence.equalsIgnoreCase("null")) {
             return true;
+        }
+        for (int i = 0; i < sizeSequence; i++) {
+            if ((Character.isWhitespace(sequence.charAt(i)) == false)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
