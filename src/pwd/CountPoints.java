@@ -14,11 +14,13 @@ import java.util.Map;
  */
 public class CountPoints {
     
-    public static final int EMPTY = 0;
-    public static final int TAM_PEQUENO = 3;
-    public static final int TAM_MEDIO = 4;
-    public static final int TAM_PADRAO = 6;
-    
+    protected static final int ZERO = 0;
+    protected static final int EXTREMELY_SMALL = 2;
+    protected static final int SMALL = 3;
+    protected static final int MIDDLE = 4;
+    protected static final int DEFAULT = 6;
+    protected static final int BIG = 8;
+    protected static final int EXTREMELY_BIG = 10;
     
     private static int quantNum;
     private static int quantSmallLetter;
@@ -37,15 +39,15 @@ public class CountPoints {
         quantOtherChar = letter.get("OTHER_CHAR");
     }
 
-    public static int getQuantNum() {
+    public static int getQuantityOfNumber() {
         return quantNum;
     }
 
-    public static int getQuantSmallLetter() {
+    public static int getQuantityOfSmallLetter() {
         return quantSmallLetter;
     }
 
-    public static int getQuantCapitalLetter() {
+    public static int getQuantityOfCapitalLetter() {
         return quantCapitalLetter;
     }
 
