@@ -13,58 +13,58 @@ public class IncreasePoints extends CountPoints {
 
     public static int increaseLevel(String password, int length, int level) {
         setQuant(password);
-        if (getQuantNum() > EMPTY) {
+        if (getQuantityOfNumber() > ZERO) {
             level++;
         }
-        if (getQuantSmallLetter() > EMPTY) {
+        if (getQuantityOfSmallLetter() > ZERO) {
             level++;
         }
-        if (length > TAM_MEDIO && getQuantCapitalLetter() > EMPTY) {
+        if (length > SMALL && getQuantityOfCapitalLetter() > ZERO) {
             level++;
         }
-        if (length >  TAM_MEDIO && getQuantOtherChar() > EMPTY) {
+        if (length > DEFAULT && getQuantOtherChar() > ZERO) {
             level++;
         }
-        if (length >  TAM_MEDIO && getQuantNum() > EMPTY && getQuantSmallLetter() > EMPTY
-                || getQuantNum() > EMPTY && getQuantCapitalLetter() > EMPTY
-                || getQuantNum() > EMPTY && getQuantOtherChar() > EMPTY
-                || getQuantSmallLetter() > EMPTY && getQuantCapitalLetter() > EMPTY
-                || getQuantSmallLetter() > EMPTY && getQuantOtherChar() > EMPTY
-                || getQuantCapitalLetter() > EMPTY && getQuantOtherChar() > EMPTY) {
+        if (length > SMALL && getQuantityOfNumber() > ZERO && getQuantityOfSmallLetter() > ZERO
+                || getQuantityOfNumber() > ZERO && getQuantityOfCapitalLetter() > ZERO
+                || getQuantityOfNumber() > ZERO && getQuantOtherChar() > ZERO
+                || getQuantityOfSmallLetter() > ZERO && getQuantityOfCapitalLetter() > ZERO
+                || getQuantityOfSmallLetter() > ZERO && getQuantOtherChar() > ZERO
+                || getQuantityOfCapitalLetter() > ZERO && getQuantOtherChar() > ZERO) {
             level++;
         }
-        if (length >  TAM_MEDIO && getQuantNum() > EMPTY && getQuantSmallLetter() > EMPTY && getQuantCapitalLetter() > EMPTY
-                || getQuantNum() > EMPTY && getQuantSmallLetter() > EMPTY && getQuantOtherChar() > EMPTY
-                || getQuantNum() > EMPTY && getQuantCapitalLetter() > EMPTY && getQuantOtherChar() > EMPTY
-                || getQuantSmallLetter() > EMPTY && getQuantCapitalLetter() > EMPTY && getQuantOtherChar() > EMPTY) {
+        if (length > DEFAULT && getQuantityOfNumber() > ZERO && getQuantityOfSmallLetter() > ZERO && getQuantityOfCapitalLetter() > ZERO
+                || getQuantityOfNumber() > ZERO && getQuantityOfSmallLetter() > ZERO && getQuantOtherChar() > ZERO
+                || getQuantityOfNumber() > ZERO && getQuantityOfCapitalLetter() > ZERO && getQuantOtherChar() > ZERO
+                || getQuantityOfSmallLetter() > ZERO && getQuantityOfCapitalLetter() > ZERO && getQuantOtherChar() > ZERO) {
             level++;
         }
-        if (length > 8 && getQuantNum() > EMPTY && getQuantSmallLetter() > EMPTY
-                && getQuantCapitalLetter() > EMPTY && getQuantOtherChar() > EMPTY) {
+        if (length > BIG && getQuantityOfNumber() > ZERO && getQuantityOfSmallLetter() > ZERO
+                && getQuantityOfCapitalLetter() > ZERO && getQuantOtherChar() > ZERO) {
             level++;
         }
-        if (length >  TAM_MEDIO && getQuantNum() >=  TAM_PEQUENO && getQuantSmallLetter() >=  TAM_PEQUENO
-                || getQuantNum() >=  TAM_PEQUENO && getQuantCapitalLetter() >=  TAM_PEQUENO
-                || getQuantNum() >=  TAM_PEQUENO && getQuantOtherChar() >= 2
-                || getQuantSmallLetter() >=  TAM_PEQUENO && getQuantCapitalLetter() >=  TAM_PEQUENO
-                || getQuantSmallLetter() >=  TAM_PEQUENO && getQuantOtherChar() >= 2
-                || getQuantCapitalLetter() >=  TAM_PEQUENO && getQuantOtherChar() >= 2) {
+        if (length > DEFAULT && getQuantityOfNumber() >= SMALL && getQuantityOfSmallLetter() >= SMALL
+                || getQuantityOfNumber() >= SMALL && getQuantityOfCapitalLetter() >= SMALL
+                || getQuantityOfNumber() >= SMALL && getQuantOtherChar() >= EXTREMELY_SMALL
+                || getQuantityOfSmallLetter() >= SMALL && getQuantityOfCapitalLetter() >= SMALL
+                || getQuantityOfSmallLetter() >= SMALL && getQuantOtherChar() >= EXTREMELY_SMALL
+                || getQuantityOfCapitalLetter() >= SMALL && getQuantOtherChar() >= EXTREMELY_SMALL) {
             level++;
         }
-        if (length > 8 && getQuantNum() >= 2 && getQuantSmallLetter() >= 2 && getQuantCapitalLetter() >= 2
-                || getQuantNum() >= 2 && getQuantSmallLetter() >= 2 && getQuantOtherChar() >= 2
-                || getQuantNum() >= 2 && getQuantCapitalLetter() >= 2 && getQuantOtherChar() >= 2
-                || getQuantSmallLetter() >= 2 && getQuantCapitalLetter() >= 2 && getQuantOtherChar() >= 2) {
+        if (length > BIG && getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfSmallLetter() >= EXTREMELY_SMALL && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL
+                || getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfSmallLetter() >= EXTREMELY_SMALL && getQuantOtherChar() >= EXTREMELY_SMALL
+                || getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL && getQuantOtherChar() >= EXTREMELY_SMALL
+                || getQuantityOfSmallLetter() >= EXTREMELY_SMALL && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL && getQuantOtherChar() >= EXTREMELY_SMALL) {
             level++;
         }
-        if (length > 10 && getQuantNum() >= 2 && getQuantSmallLetter() >= 2
-                && getQuantCapitalLetter() >= 2 && getQuantOtherChar() >= 2) {
+        if (length > EXTREMELY_BIG && getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfSmallLetter() >= EXTREMELY_SMALL
+                && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL && getQuantOtherChar() >= EXTREMELY_SMALL) {
             level++;
         }
-        if (getQuantOtherChar() >=  TAM_PEQUENO) {
+        if (getQuantOtherChar() >= SMALL) {
             level++;
         }
-        if (getQuantOtherChar() >=  TAM_MEDIO) {
+        if (getQuantOtherChar() >= DEFAULT) {
             level++;
         }
         if (length > 12) {
