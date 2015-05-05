@@ -51,8 +51,8 @@ public class StringUtils {
         for (int i = 0; i < digits.length; i++) {  
             digits[i] = Byte.parseByte(String.valueOf(caracteres[i]));  
         }  
-        return digits;  
-    }  
+        return digits; 
+        
     public static int verifySizeNumber(int number) {
         int size;
         byte[] digits = getDigits(number);
@@ -61,9 +61,6 @@ public class StringUtils {
     }
     
 
-    /**
-     * Judge whether each character of the string equals
-     */
     public static boolean verifyIsCharEqual(String sequence) {
         char firstLetter = sequence.charAt(0);
         char [] charSequence = sequence.toCharArray();    
