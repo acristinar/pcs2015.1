@@ -17,7 +17,7 @@ import pwd.StringUtils;
 
 public class TestCountLetter {
     private String password;
-    private String type[] = {"NUMBER", "SMALL_LETTER", "CAPITAL_LETTER", "OTHER_CHAR"};
+    private String type[] = {"NUM", "SMALL_LETTER", "CAPITAL_LETTER", "OTHER_CHAR"};
     private Map<String, Integer> result = new HashMap<>();
     private Map<String, Integer> expected = new HashMap<>();
 
@@ -29,7 +29,7 @@ public class TestCountLetter {
         result.put(type[2], 2);
         result.put(type[3], 5);
         
-        expected = StringUtils.quantityOfLetter(password);
+        expected = StringUtils.quantLetter(password);
         
         for(int i = 0; i < result.size(); i++ ) {
             System.out.println("Senha: " + password + " - Tipo de caracter: " + type[i] + " - Resultado esperado: " + result.get(type[i]));
