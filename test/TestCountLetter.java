@@ -29,7 +29,7 @@ public class TestCountLetter {
         result.put(type[2], 2);
         result.put(type[3], 5);
         
-        expected = StringUtils.quantLetter(password);
+        expected = StringUtils.quantityOfLetter(password);
         
         for(int i = 0; i < result.size(); i++ ) {
             System.out.println("Senha: " + password + " - Tipo de caracter: " + type[i] + " - Resultado esperado: " + result.get(type[i]));
