@@ -76,15 +76,15 @@ public class TestPassword {
     @Test
     public void teste() throws Exception {
         try {
-            int pontuacaoObitdo = CheckStrength.checkPasswordStrength(password);
-            String classificaçãoObtido = CheckStrength.getPasswordLevel(password);
+            int pontuacaoObtido = CheckStrength.checkPasswordStrength(password);
+            String classificaçãoObtido = CheckStrength.getPasswordLevel(pontuacaoObtido);
             
             System.out.println("Senha: " + password + " - Classificação esperado: " + result);
             System.out.println("Classificação obtido: " + classificaçãoObtido);
-            System.out.println("Pontuação esperado: " + strength + " - Pontuação obtido: " + pontuacaoObitdo);
+            System.out.println("Pontuação esperado: " + strength + " - Pontuação obtido: " + pontuacaoObtido);
            
             assertEquals(result, classificaçãoObtido);
-            assertEquals(strength, pontuacaoObitdo);
+            assertEquals(strength, pontuacaoObtido);
             
         } catch(Exception e) {
             System.out.println("Senha: " + password + " - Classificação esperado: " + result);

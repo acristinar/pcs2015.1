@@ -26,8 +26,7 @@ public class CheckStrength {
         return level;
     }
 
-    public static String getPasswordLevel(String password) {
-        int level = checkPasswordStrength(password);
+    public static String getPasswordLevel(int level) {
         switch (level) {
             case 0:
             case 1:

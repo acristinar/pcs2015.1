@@ -16,45 +16,42 @@ public class DecreasePoints extends CountPoints{
         
         level = verifySimpleSequence(password, level);
 
-        if (getQuantNum() == length || getQuantSmallLetter() == length || getQuantCapitalLetter() == length) {
+        if (getQuantityOfNumber() == length || getQuantityOfSmallLetter() == length || getQuantityOfCapitalLetter() == length) {
             level--;
         }
-        if (length % 2 == EMPTY) { // aaabbb
+        if (length % EXTREMELY_SMALL == ZERO) { // aaabbb
             level = verifyPairRepeatSequence(length, password, level);
         }
-        if (length % TAM_PEQUENO == EMPTY) { // ababab
+        if (length % SMALL == ZERO) { // ababab
             level = verifyOddRepeatSequence(length, password, level);
         }
-        if (StringUtils.verifyIsNumeric(password) && length >= TAM_PADRAO) { // 19881010 or 881010
+        if (StringUtils.verifyIsNumeric(password) && length >= DEFAULT) { // 19881010 or 881010
             level = verifyDate(password, length, level);
         }
-        if (null != getDICTIONARY() && getDICTIONARY().length > EMPTY) {
+        if (null != getDICTIONARY() && getDICTIONARY().length > ZERO) {
             level = wordDictionary(password, level);
         }
-        if (length <= TAM_PADRAO) {
+        if (length <= DEFAULT) {
             level--;
         }
-        if (length <= 4) {
+        if (length <= MIDDLE) {
             level--;
         }
-        if (length <= TAM_PEQUENO) {
-            level = EMPTY;
+        if (length <= SMALL) {
+            level = ZERO;
         }
         if (StringUtils.verifyIsChar(password)) {
-            level = EMPTY;
+            level = ZERO;
         }
-        if (level < EMPTY) {
-            level = EMPTY;
+        if (level < ZERO) {
+            level = ZERO;
         }
         return level;
     }
 
-    /**
-     * Compare password with words from the dictionary
-     */
     private static int wordDictionary(String password, int level) {
         for (int i = 0; i < getDICTIONARY().length; i++) {
-            if (password.equals(getDICTIONARY()[i]) || getDICTIONARY()[i].indexOf(password) >= EMPTY) {
+            if (password.equals(getDICTIONARY()[i]) || getDICTIONARY()[i].indexOf(password) >= ZERO) {
                 level--;
                 break;
             }
@@ -62,26 +59,20 @@ public class DecreasePoints extends CountPoints{
         return level;
     }
 
-    /**
-     * Judge whether the password is a verifyDate
-     */
     private static int verifyDate(String password, int length, int level) throws NumberFormatException {
         int year = 0;
-        if (length == 8 || length == TAM_PADRAO) {
+        if (length == BIG || length == DEFAULT) {
             year = Integer.parseInt(password.substring(0, length - 4));
         }
         int size = StringUtils.verifySizeNumber(year);
         int month = Integer.parseInt(password.substring(size, size + 2));
         int day = Integer.parseInt(password.substring(size + 2, length));
-        if (year >= 1950 && year < 2050 && month >= 1 && month <= 12 && day >= 1 && day <= TAM_PEQUENO) {
+        if (year >= 1950 && year < 2050 && month >= 1 && month <= 12 && day >= 1 && day <= 31) {
             level--;
         }
         return level;
     }
 
-    /**
-     * Judge whether the password is an odd repeat sequence
-     */
     private static int verifyOddRepeatSequence(int length, String password, int level) {
         String part1 = password.substring(0, length / 3);
         String part2 = password.substring(length / 3, length / 3 * 2);
@@ -92,9 +83,6 @@ public class DecreasePoints extends CountPoints{
         return level;
     }
 
-    /**
-     * Judge whether the password is a pair repeat sequence
-     */
     private static int verifyPairRepeatSequence(int length, String password, int level) {
         String part1 = password.substring(0, length / 2);
         String part2 = password.substring(length / 2);
@@ -108,9 +96,6 @@ public class DecreasePoints extends CountPoints{
         return level;
     }
 
-    /**
-     * Judge whether the password is a common sequence
-     */
     private static int verifySimpleSequence(String password, int level) {
         if ("abcdefghijklmnopqrstuvwxyz".indexOf(password) > 0 || "ABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(password) > 0) {
             level--;
