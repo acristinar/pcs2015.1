@@ -22,10 +22,10 @@ public class CountPoints {
     protected static final int BIG = 8;
     protected static final int EXTREMELY_BIG = 10;
     
-    private static int quantNum;
-    private static int quantSmallLetter;
-    private static int quantCapitalLetter;
-    private static int quantOtherChar;
+    private static int quantityOfNumber;
+    private static int quantityOfSmallLetter;
+    private static int quantityOfCapitalLetter;
+    private static int quantityOtherChar;
     private static Map<String, Integer> letter = new HashMap<>();
     
     private final static String[] DICTIONARY = {"password", "abc123", "iloveyou", "adobe123", "123123", "sunshine",
@@ -33,26 +33,26 @@ public class CountPoints {
 
     public static void setQuant(String password) {
         letter = StringUtils.quantLetter(password);
-        quantNum = letter.get("NUM");
-        quantSmallLetter = letter.get("SMALL_LETTER");
-        quantCapitalLetter = letter.get("CAPITAL_LETTER");
-        quantOtherChar = letter.get("OTHER_CHAR");
+        quantityOfNumber = letter.get("NUM");
+        quantityOfSmallLetter = letter.get("SMALL_LETTER");
+        quantityOfCapitalLetter = letter.get("CAPITAL_LETTER");
+        quantityOtherChar = letter.get("OTHER_CHAR");
     }
 
     public static int getQuantityOfNumber() {
-        return quantNum;
+        return quantityOfNumber;
     }
 
     public static int getQuantityOfSmallLetter() {
-        return quantSmallLetter;
+        return quantityOfSmallLetter;
     }
 
     public static int getQuantityOfCapitalLetter() {
-        return quantCapitalLetter;
+        return quantityOfCapitalLetter;
     }
 
-    public static int getQuantOtherChar() {
-        return quantOtherChar;
+    public static int getQuantityOtherChar() {
+        return quantityOtherChar;
     }
 
     public static String[] getDICTIONARY() {
