@@ -22,49 +22,49 @@ public class IncreasePoints extends CountPoints {
         if (length > SMALL && getQuantityOfCapitalLetter() > ZERO) {
             level++;
         }
-        if (length > DEFAULT && getQuantOtherChar() > ZERO) {
+        if (length > DEFAULT && getQuantityOtherChar() > ZERO) {
             level++;
         }
         if (length > SMALL && getQuantityOfNumber() > ZERO && getQuantityOfSmallLetter() > ZERO
                 || getQuantityOfNumber() > ZERO && getQuantityOfCapitalLetter() > ZERO
-                || getQuantityOfNumber() > ZERO && getQuantOtherChar() > ZERO
+                || getQuantityOfNumber() > ZERO && getQuantityOtherChar() > ZERO
                 || getQuantityOfSmallLetter() > ZERO && getQuantityOfCapitalLetter() > ZERO
-                || getQuantityOfSmallLetter() > ZERO && getQuantOtherChar() > ZERO
-                || getQuantityOfCapitalLetter() > ZERO && getQuantOtherChar() > ZERO) {
+                || getQuantityOfSmallLetter() > ZERO && getQuantityOtherChar() > ZERO
+                || getQuantityOfCapitalLetter() > ZERO && getQuantityOtherChar() > ZERO) {
             level++;
         }
         if (length > DEFAULT && getQuantityOfNumber() > ZERO && getQuantityOfSmallLetter() > ZERO && getQuantityOfCapitalLetter() > ZERO
-                || getQuantityOfNumber() > ZERO && getQuantityOfSmallLetter() > ZERO && getQuantOtherChar() > ZERO
-                || getQuantityOfNumber() > ZERO && getQuantityOfCapitalLetter() > ZERO && getQuantOtherChar() > ZERO
-                || getQuantityOfSmallLetter() > ZERO && getQuantityOfCapitalLetter() > ZERO && getQuantOtherChar() > ZERO) {
+                || getQuantityOfNumber() > ZERO && getQuantityOfSmallLetter() > ZERO && getQuantityOtherChar() > ZERO
+                || getQuantityOfNumber() > ZERO && getQuantityOfCapitalLetter() > ZERO && getQuantityOtherChar() > ZERO
+                || getQuantityOfSmallLetter() > ZERO && getQuantityOfCapitalLetter() > ZERO && getQuantityOtherChar() > ZERO) {
             level++;
         }
         if (length > BIG && getQuantityOfNumber() > ZERO && getQuantityOfSmallLetter() > ZERO
-                && getQuantityOfCapitalLetter() > ZERO && getQuantOtherChar() > ZERO) {
+                && getQuantityOfCapitalLetter() > ZERO && getQuantityOtherChar() > ZERO) {
             level++;
         }
         if (length > DEFAULT && getQuantityOfNumber() >= SMALL && getQuantityOfSmallLetter() >= SMALL
                 || getQuantityOfNumber() >= SMALL && getQuantityOfCapitalLetter() >= SMALL
-                || getQuantityOfNumber() >= SMALL && getQuantOtherChar() >= EXTREMELY_SMALL
+                || getQuantityOfNumber() >= SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL
                 || getQuantityOfSmallLetter() >= SMALL && getQuantityOfCapitalLetter() >= SMALL
-                || getQuantityOfSmallLetter() >= SMALL && getQuantOtherChar() >= EXTREMELY_SMALL
-                || getQuantityOfCapitalLetter() >= SMALL && getQuantOtherChar() >= EXTREMELY_SMALL) {
+                || getQuantityOfSmallLetter() >= SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL
+                || getQuantityOfCapitalLetter() >= SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL) {
             level++;
         }
         if (length > BIG && getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfSmallLetter() >= EXTREMELY_SMALL && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL
-                || getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfSmallLetter() >= EXTREMELY_SMALL && getQuantOtherChar() >= EXTREMELY_SMALL
-                || getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL && getQuantOtherChar() >= EXTREMELY_SMALL
-                || getQuantityOfSmallLetter() >= EXTREMELY_SMALL && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL && getQuantOtherChar() >= EXTREMELY_SMALL) {
+                || getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfSmallLetter() >= EXTREMELY_SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL
+                || getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL
+                || getQuantityOfSmallLetter() >= EXTREMELY_SMALL && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL) {
             level++;
         }
         if (length > EXTREMELY_BIG && getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfSmallLetter() >= EXTREMELY_SMALL
-                && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL && getQuantOtherChar() >= EXTREMELY_SMALL) {
+                && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL) {
             level++;
         }
-        if (getQuantOtherChar() >= SMALL) {
+        if (getQuantityOtherChar() >= SMALL) {
             level++;
         }
-        if (getQuantOtherChar() >= DEFAULT) {
+        if (getQuantityOtherChar() >= DEFAULT) {
             level++;
         }
         if (length > 12) {
