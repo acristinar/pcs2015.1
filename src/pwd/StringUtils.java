@@ -12,7 +12,7 @@ public class StringUtils {
     
     public static String checkCharacterType(char c) {
         if (Character.isDigit(c)) {
-            return "NUM";
+            return "NUMBER";
         }
         if (Character.isUpperCase(c)) {
             return "CAPITAL_LETTER";
@@ -23,11 +23,8 @@ public class StringUtils {
         return "OTHER_CHAR";
     }
 
-    /**
-     * Quantity of password's number by different type
-     */
-    public static Map quantLetter(String password) {
-        quantityEachLetter.put("NUM", 0);
+   public static Map quantityOfLetter(String password) {
+        quantityEachLetter.put("NUMBER", 0);
         quantityEachLetter.put("CAPITAL_LETTER", 0);
         quantityEachLetter.put("SMALL_LETTER", 0);
         quantityEachLetter.put("OTHER_CHAR", 0);
@@ -38,10 +35,7 @@ public class StringUtils {
         return quantityEachLetter;
     }
         
-    /**
-     * Count password's number by different type
-     */
-     private static Map countLetter(String password) {
+   private static Map countLetter(String password) {
         Integer count;
         for (char c : password.toCharArray()) {
             String type = checkCharacterType(c);
@@ -60,9 +54,6 @@ public class StringUtils {
         return digits;  
     }  
 
-    /**
-     * calculate the size of an integer number
-     */
     public static int verifySizeNumber(int number) {
         int size;
         byte[] digits = getDigits(number);
@@ -77,9 +68,6 @@ public class StringUtils {
         return sequence.replace(sequence.charAt(0), ' ').trim().length() == 0;
     }
 
-    /**
-     * Determines if the string is a digit
-     */
     public static boolean verifyIsNumeric(String sequence) {
         for (int i = sequence.length(); --i >= 0;) {
             if (!Character.isDigit(sequence.charAt(i))) {
