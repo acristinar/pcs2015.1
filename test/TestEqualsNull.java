@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import static pwd.StringUtils.equalsNull;
+import static pwd.StringUtils.verifyIsNull;
 
 /**
  *
@@ -51,9 +51,9 @@ public class TestEqualsNull {
     public void teste() throws Exception {
          try {
             System.out.println("String: " + str + " - Resultado esperado: " + result);
-            System.out.println("Resultado obtido: " + equalsNull(str));
+            System.out.println("Resultado obtido: " + verifyIsNull(str));
            
-            assertEquals(result, equalsNull(str));
+            assertEquals(result, verifyIsNull(str));
        
         } catch(Exception e) {
             System.out.println("Resultado obtido: " + e.getMessage());

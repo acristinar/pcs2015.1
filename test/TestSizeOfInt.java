@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import static pwd.StringUtils.sizeOfInt;
+import static pwd.StringUtils.verifySizeNumber;
 
 /**
  *
@@ -57,9 +57,9 @@ public class TestSizeOfInt {
     public void teste() throws Exception {
         try {
             System.out.println("Número inteiro: " + x + " - Tamanho esperado: " + result);
-            System.out.println("Tamanho obtido: " + sizeOfInt(x));
+            System.out.println("Tamanho obtido: " + verifySizeNumber(x));
            
-            assertEquals(result, sizeOfInt(x));
+            assertEquals(result, verifySizeNumber(x));
        
         } catch(Exception e) {
             System.out.println("Tamanho obtido: " + e.getMessage());

@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import static pwd.StringUtils.isNumeric;
+import static pwd.StringUtils.verifyIsNumeric;
 
 /**
  *
@@ -47,9 +47,9 @@ public class TestIsNumeric {
     public void teste() throws Exception {
          try {
             System.out.println("String: " + str + " - Resultado esperado: " + result);
-            System.out.println("Resultado obtido: " + isNumeric(str));
+            System.out.println("Resultado obtido: " + verifyIsNumeric(str));
            
-            assertEquals(result, isNumeric(str));
+            assertEquals(result, verifyIsNumeric(str));
        
         } catch(Exception e) {
             System.out.println("Resultado obtido: " + e.getMessage());

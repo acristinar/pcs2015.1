@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import static pwd.StringUtils.isCharEqual;
+import static pwd.StringUtils.verifyIsChar;
 
 /**
  *
@@ -47,9 +47,9 @@ public class TestIsCharEqual {
     public void teste() throws Exception {
          try {
             System.out.println("String: " + str + " - Resultado esperado: " + result);
-            System.out.println("Resultado obtido: " + isCharEqual(str));
+            System.out.println("Resultado obtido: " + verifyIsChar(str));
            
-            assertEquals(result, isCharEqual(str));
+            assertEquals(result, verifyIsChar(str));
        
         } catch(Exception e) {
             System.out.println("Resultado obtido: " + e.getMessage());
