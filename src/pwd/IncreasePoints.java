@@ -11,60 +11,60 @@ package pwd;
  */
 public class IncreasePoints extends CountPoints {
 
-    public static int increaseLevel(String password, int length, int level) {
-        setQuantity(password);
-        if (getQuantityOfNumber() > 0) {
+    public static int increaseLevel(String passwd, int length, int level) {
+        setQuant(passwd);
+        if (getQuantNum() > 0) {
             level++;
         }
-        if (getQuantityOfSmallLetter() > 0) {
+        if (getQuantSmallLetter() > 0) {
             level++;
         }
-        if (length > 4 && getQuantityOfCapitalLetter() > 0) {
+        if (length > 4 && getQuantCapitalLetter() > 0) {
             level++;
         }
-        if (length > 6 && getQuantityOfOtherChar() > 0) {
+        if (length > 6 && getQuantOtherChar() > 0) {
             level++;
         }
-        if (length > 4 && getQuantityOfNumber() > 0 && getQuantityOfSmallLetter() > 0
-                || getQuantityOfNumber() > 0 && getQuantityOfCapitalLetter() > 0
-                || getQuantityOfNumber() > 0 && getQuantityOfOtherChar() > 0
-                || getQuantityOfSmallLetter() > 0 && getQuantityOfCapitalLetter() > 0
-                || getQuantityOfSmallLetter() > 0 && getQuantityOfOtherChar() > 0
-                || getQuantityOfCapitalLetter() > 0 && getQuantityOfOtherChar() > 0) {
+        if (length > 4 && getQuantNum() > 0 && getQuantSmallLetter() > 0
+                || getQuantNum() > 0 && getQuantCapitalLetter() > 0
+                || getQuantNum() > 0 && getQuantOtherChar() > 0
+                || getQuantSmallLetter() > 0 && getQuantCapitalLetter() > 0
+                || getQuantSmallLetter() > 0 && getQuantOtherChar() > 0
+                || getQuantCapitalLetter() > 0 && getQuantOtherChar() > 0) {
             level++;
         }
-        if (length > 6 && getQuantityOfNumber() > 0 && getQuantityOfSmallLetter() > 0 && getQuantityOfCapitalLetter() > 0
-                || getQuantityOfNumber() > 0 && getQuantityOfSmallLetter() > 0 && getQuantityOfOtherChar() > 0
-                || getQuantityOfNumber() > 0 && getQuantityOfCapitalLetter() > 0 && getQuantityOfOtherChar() > 0
-                || getQuantityOfSmallLetter() > 0 && getQuantityOfCapitalLetter() > 0 && getQuantityOfOtherChar() > 0) {
+        if (length > 6 && getQuantNum() > 0 && getQuantSmallLetter() > 0 && getQuantCapitalLetter() > 0
+                || getQuantNum() > 0 && getQuantSmallLetter() > 0 && getQuantOtherChar() > 0
+                || getQuantNum() > 0 && getQuantCapitalLetter() > 0 && getQuantOtherChar() > 0
+                || getQuantSmallLetter() > 0 && getQuantCapitalLetter() > 0 && getQuantOtherChar() > 0) {
             level++;
         }
-        if (length > 8 && getQuantityOfNumber() > 0 && getQuantityOfSmallLetter() > 0
-                && getQuantityOfCapitalLetter() > 0 && getQuantityOfOtherChar() > 0) {
+        if (length > 8 && getQuantNum() > 0 && getQuantSmallLetter() > 0
+                && getQuantCapitalLetter() > 0 && getQuantOtherChar() > 0) {
             level++;
         }
-        if (length > 6 && getQuantityOfNumber() >= 3 && getQuantityOfSmallLetter() >= 3
-                || getQuantityOfNumber() >= 3 && getQuantityOfCapitalLetter() >= 3
-                || getQuantityOfNumber() >= 3 && getQuantityOfOtherChar() >= 2
-                || getQuantityOfSmallLetter() >= 3 && getQuantityOfCapitalLetter() >= 3
-                || getQuantityOfSmallLetter() >= 3 && getQuantityOfOtherChar() >= 2
-                || getQuantityOfCapitalLetter() >= 3 && getQuantityOfOtherChar() >= 2) {
+        if (length > 6 && getQuantNum() >= 3 && getQuantSmallLetter() >= 3
+                || getQuantNum() >= 3 && getQuantCapitalLetter() >= 3
+                || getQuantNum() >= 3 && getQuantOtherChar() >= 2
+                || getQuantSmallLetter() >= 3 && getQuantCapitalLetter() >= 3
+                || getQuantSmallLetter() >= 3 && getQuantOtherChar() >= 2
+                || getQuantCapitalLetter() >= 3 && getQuantOtherChar() >= 2) {
             level++;
         }
-        if (length > 8 && getQuantityOfNumber() >= 2 && getQuantityOfSmallLetter() >= 2 && getQuantityOfCapitalLetter() >= 2
-                || getQuantityOfNumber() >= 2 && getQuantityOfSmallLetter() >= 2 && getQuantityOfOtherChar() >= 2
-                || getQuantityOfNumber() >= 2 && getQuantityOfCapitalLetter() >= 2 && getQuantityOfOtherChar() >= 2
-                || getQuantityOfSmallLetter() >= 2 && getQuantityOfCapitalLetter() >= 2 && getQuantityOfOtherChar() >= 2) {
+        if (length > 8 && getQuantNum() >= 2 && getQuantSmallLetter() >= 2 && getQuantCapitalLetter() >= 2
+                || getQuantNum() >= 2 && getQuantSmallLetter() >= 2 && getQuantOtherChar() >= 2
+                || getQuantNum() >= 2 && getQuantCapitalLetter() >= 2 && getQuantOtherChar() >= 2
+                || getQuantSmallLetter() >= 2 && getQuantCapitalLetter() >= 2 && getQuantOtherChar() >= 2) {
             level++;
         }
-        if (length > 10 && getQuantityOfNumber() >= 2 && getQuantityOfSmallLetter() >= 2
-                && getQuantityOfCapitalLetter() >= 2 && getQuantityOfOtherChar() >= 2) {
+        if (length > 10 && getQuantNum() >= 2 && getQuantSmallLetter() >= 2
+                && getQuantCapitalLetter() >= 2 && getQuantOtherChar() >= 2) {
             level++;
         }
-        if (getQuantityOfOtherChar() >= 3) {
+        if (getQuantOtherChar() >= 3) {
             level++;
         }
-        if (getQuantityOfOtherChar() >= 6) {
+        if (getQuantOtherChar() >= 6) {
             level++;
         }
         if (length > 12) {
