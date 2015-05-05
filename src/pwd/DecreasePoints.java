@@ -40,7 +40,7 @@ public class DecreasePoints extends CountPoints{
         if (length <= SMALL) {
             level = ZERO;
         }
-        if (StringUtils.verifyIsChar(password)) {
+        if (StringUtils.verifyIsCharEqual(password)) {
             level = ZERO;
         }
         if (level < ZERO) {
@@ -89,7 +89,7 @@ public class DecreasePoints extends CountPoints{
         if (part1.equals(part2)) {
             level--;
         }
-        if (StringUtils.verifyIsChar(part1) && StringUtils.verifyIsChar(part2)) {
+        if (StringUtils.verifyIsCharEqual(part1) && StringUtils.verifyIsCharEqual(part2)) {
             level--;
         }
 

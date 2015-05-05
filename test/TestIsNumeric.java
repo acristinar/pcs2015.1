@@ -24,11 +24,11 @@ import static pwd.StringUtils.verifyIsNumeric;
 @RunWith(Parameterized.class)
 public class TestIsNumeric {
     
-    String str;
+    String sequence;
     boolean result;
 
     public TestIsNumeric(String str, boolean result) {
-        this.str = str;
+        this.sequence = str;
         this.result = result;
     }
     
@@ -46,10 +46,10 @@ public class TestIsNumeric {
     @Test
     public void teste() throws Exception {
          try {
-            System.out.println("String: " + str + " - Resultado esperado: " + result);
-            System.out.println("Resultado obtido: " + verifyIsNumeric(str));
+            System.out.println("String: " + sequence + " - Resultado esperado: " + result);
+            System.out.println("Resultado obtido: " + verifyIsNumeric(sequence));
            
-            assertEquals(result, verifyIsNumeric(str));
+            assertEquals(result, verifyIsNumeric(sequence));
        
         } catch(Exception e) {
             System.out.println("Resultado obtido: " + e.getMessage());

@@ -59,12 +59,14 @@ public class StringUtils {
         size = digits.length;
         return size; 
     }
+    
 
     /**
      * Judge whether each character of the string equals
      */
-    public static boolean verifyIsChar(String sequence) {
+    public static boolean verifyIsCharEqual(String sequence) { 
         return sequence.replace(sequence.charAt(0), ' ').trim().length() == 0;
+        
     }
 
     public static boolean verifyIsNumeric(String sequence) {
