@@ -49,9 +49,6 @@ public class DecreasePoints extends CountPoints{
         return level;
     }
 
-    /**
-     * Compare password with words from the dictionary
-     */
     private static int wordDictionary(String password, int level) {
         for (int i = 0; i < getDICTIONARY().length; i++) {
             if (password.equals(getDICTIONARY()[i]) || getDICTIONARY()[i].indexOf(password) >= ZERO) {
@@ -62,9 +59,6 @@ public class DecreasePoints extends CountPoints{
         return level;
     }
 
-    /**
-     * Judge whether the password is a verifyDate
-     */
     private static int verifyDate(String password, int length, int level) throws NumberFormatException {
         int year = 0;
         if (length == BIG || length == DEFAULT) {
@@ -79,9 +73,6 @@ public class DecreasePoints extends CountPoints{
         return level;
     }
 
-    /**
-     * Judge whether the password is an odd repeat sequence
-     */
     private static int verifyOddRepeatSequence(int length, String password, int level) {
         String part1 = password.substring(0, length / 3);
         String part2 = password.substring(length / 3, length / 3 * 2);
@@ -92,9 +83,6 @@ public class DecreasePoints extends CountPoints{
         return level;
     }
 
-    /**
-     * Judge whether the password is a pair repeat sequence
-     */
     private static int verifyPairRepeatSequence(int length, String password, int level) {
         String part1 = password.substring(0, length / 2);
         String part2 = password.substring(length / 2);
@@ -108,9 +96,6 @@ public class DecreasePoints extends CountPoints{
         return level;
     }
 
-    /**
-     * Judge whether the password is a common sequence
-     */
     private static int verifySimpleSequence(String password, int level) {
         if ("abcdefghijklmnopqrstuvwxyz".indexOf(password) > 0 || "ABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(password) > 0) {
             level--;
