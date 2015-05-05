@@ -15,21 +15,19 @@ public class CheckStrength {
         EASY, MIDIUM, STRONG, VERY_STRONG, EXTREMELY_STRONG
     }
 
-    private static String password;
-
-    public static int checkPasswordStrength(String password) {
-        if (StringUtils.equalsNull(password)) {
+    public static int checkPasswordStrength(String passwd) {
+        if (StringUtils.equalsNull(passwd)) {
             throw new IllegalArgumentException("password is empty");
         }
-        int length = password.length();
+        int length = passwd.length();
         int level = 0;
-        level = IncreasePoints.increaseLevel(password, length, level);
-        level = DecreasePoints.decreaseLevel(password, length, level);
+        level = IncreasePoints.increaseLevel(passwd, length, level);
+        level = DecreasePoints.decreaseLevel(passwd, length, level);
         return level;
     }
 
-    public static String getPasswordLevel(String password) {
-        int level = checkPasswordStrength(password);
+    public static String getPasswordLevel(String passwd) {
+        int level = checkPasswordStrength(passwd);
         switch (level) {
             case 0:
             case 1:
