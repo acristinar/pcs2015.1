@@ -64,9 +64,15 @@ public class StringUtils {
     /**
      * Judge whether each character of the string equals
      */
-    public static boolean verifyIsCharEqual(String sequence) { 
-        return sequence.replace(sequence.charAt(0), ' ').trim().length() == 0;
-        
+    public static boolean verifyIsCharEqual(String sequence) {
+        char firstLetter = sequence.charAt(0);
+        char [] charSequence = sequence.toCharArray();    
+        for(char c: charSequence){
+            if ( c != firstLetter ){
+                return false; 
+            }
+        }
+        return true;
     }
 
     public static boolean verifyIsNumeric(String sequence) {
