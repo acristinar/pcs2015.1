@@ -52,6 +52,7 @@ public class StringUtils {
             digits[i] = Byte.parseByte(String.valueOf(caracteres[i]));  
         }  
         return digits; 
+    }
         
     public static int verifySizeNumber(int number) {
         int size;
@@ -59,7 +60,6 @@ public class StringUtils {
         size = digits.length;
         return size; 
     }
-    
 
     public static boolean verifyIsCharEqual(String sequence) {
         char firstLetter = sequence.charAt(0);

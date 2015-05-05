@@ -19,7 +19,7 @@ public class DecreasePoints extends CountPoints{
         if (getQuantityOfNumber() == length || getQuantityOfSmallLetter() == length || getQuantityOfCapitalLetter() == length) {
             level--;
         }
-        if (length % EXTREMELY_SMALL == ZERO) { // aaabbb
+        if (length % EXTREMELY_SMALL == ZERO) { 
             level = verifyPairRepeatSequence(length, password, level);
         }
         if (length % SMALL == ZERO) { // ababab
