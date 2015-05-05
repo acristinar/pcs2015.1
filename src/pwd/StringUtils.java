@@ -60,9 +60,7 @@ public class StringUtils {
         return digits;  
     }  
 
-    /**
-     * calculate the size of an integer number
-     */
+   
     public static int verifySizeNumber(int number) {
         int size;
         byte[] digits = getDigits(number);
