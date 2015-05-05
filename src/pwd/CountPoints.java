@@ -32,8 +32,8 @@ public class CountPoints {
         "1314520", "a1b2c3", "123qwe", "aaa111", "qweasd", "admin", "passwd"};
 
     public static void setQuant(String password) {
-        letter = StringUtils.quantLetter(password);
-        quantityOfNumber = letter.get("NUM");
+        letter = StringUtils.quantityOfLetter(password);
+        quantityOfNumber = letter.get("NUMBER");
         quantityOfSmallLetter = letter.get("SMALL_LETTER");
         quantityOfCapitalLetter = letter.get("CAPITAL_LETTER");
         quantityOtherChar = letter.get("OTHER_CHAR");
