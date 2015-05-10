@@ -17,7 +17,7 @@ import pwd.StringUtils;
 
 public class TestCountLetter {
     private String password;
-    private String type[] = {"NUM", "SMALL_LETTER", "CAPITAL_LETTER", "OTHER_CHAR"};
+    private String type[] = {"NUMBER", "SMALL_LETTER", "CAPITAL_LETTER", "OTHER_CHAR"};
     private Map<String, Integer> result = new HashMap<>();
     private Map<String, Integer> expected = new HashMap<>();
 
