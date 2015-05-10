@@ -39,6 +39,10 @@ public class TestIsCharEqual {
             {"aab", false},
             {"baa", false},
             {"abab",false},
+            {"****",true},
+            {"2222", true},
+            {"1aaa1",false},
+            {"11a11",false}
         }
        );
     }
