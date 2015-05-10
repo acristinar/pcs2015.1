@@ -12,18 +12,16 @@ package pwd;
 public class CheckStrength {
 
     public enum LEVEL {
-        EASY, MIDIUM, STRONG, VERY_STRONG, EXTREMELY_STRONG
+        EASY, MEDIUM, STRONG, VERY_STRONG, EXTREMELY_STRONG
     }
 
+//    static int level = 0;
+    
     public static int checkPasswordStrength(String password) {
         if (StringUtils.verifyIsNull(password)) {
             throw new IllegalArgumentException("password is empty");
         }
-        int length = password.length();
-        int level = 0;
-        level = IncreasePoints.increaseLevel(password, length, level);
-        level = DecreasePoints.decreaseLevel(password, length, level);
-        return level;
+        return CountPoints.Points(password);
     }
 
     public static String getPasswordLevel(int level) {
@@ -36,7 +34,7 @@ public class CheckStrength {
             case 4:
             case 5:
             case 6:
-                return LEVEL.MIDIUM.name();
+                return LEVEL.MEDIUM.name();
             case 7:
             case 8:
             case 9:

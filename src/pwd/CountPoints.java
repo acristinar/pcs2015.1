@@ -17,7 +17,7 @@ public class CountPoints {
     protected static final int ZERO = 0;
     protected static final int EXTREMELY_SMALL = 2;
     protected static final int SMALL = 3;
-    protected static final int MIDDLE = 4;
+    protected static final int MEDIUM = 4;
     protected static final int DEFAULT = 6;
     protected static final int BIG = 8;
     protected static final int EXTREMELY_BIG = 10;
@@ -37,6 +37,13 @@ public class CountPoints {
         quantityOfSmallLetter = letter.get("SMALL_LETTER");
         quantityOfCapitalLetter = letter.get("CAPITAL_LETTER");
         quantityOtherChar = letter.get("OTHER_CHAR");
+    }
+    
+    public static int Points(String password){
+        int level = 0;
+        level = IncreasePoints.increaseLevel(password, level);
+        level = DecreasePoints.decreaseLevel(password, level);
+        return level;
     }
 
     public static int getQuantityOfNumber() {

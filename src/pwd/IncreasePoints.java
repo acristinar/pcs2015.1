@@ -10,69 +10,118 @@ package pwd;
  * @author Lucianna
  */
 public class IncreasePoints extends CountPoints {
+    
+    private static int increaseLevel;
 
-    public static int increaseLevel(String password, int length, int level) {
+    public static int increaseLevel(String password, int level) {
         setQuant(password);
-        if (getQuantityOfNumber() > ZERO) {
-            level++;
+        
+        int length = password.length();
+        increaseLevel = level;
+        
+        oneTypeOfCharacter();
+        twoTypeOfCharacters(length);
+        threeTypeOfCharacters(length);
+        fourTypeOfCharacters(length);
+        passwordSize(length);
+        
+        return level = increaseLevel;
+    }
+
+    private static void fourTypeOfCharacters(int length) { // reduzindo 2 if's para 1
+        int size[] = {1, EXTREMELY_SMALL, BIG, EXTREMELY_BIG};
+        for(int i = 0; i < size.length/2; i++){
+            if (length > size[i+2] && getQuantityOfNumber() >= size[i] && getQuantityOfSmallLetter() >= size[i]
+                && getQuantityOfCapitalLetter() >= size[i] && getQuantityOtherChar() >= size[i]) {
+                increaseLevel++;
+            }
         }
-        if (getQuantityOfSmallLetter() > ZERO) {
-            level++;
+    }
+
+    private static void threeTypeOfCharacters(int length) {
+        int value1[] = {1, DEFAULT};
+        if (valueAndQuantity3(length, value1)) {
+            increaseLevel++;
         }
-        if (length > SMALL && getQuantityOfCapitalLetter() > ZERO) {
-            level++;
+        int value2[] = {EXTREMELY_SMALL, BIG};
+        if (valueAndQuantity3(length, value2)) {
+            increaseLevel++;
         }
-        if (length > DEFAULT && getQuantityOtherChar() > ZERO) {
-            level++;
+    }
+
+    private static boolean valueAndQuantity3(int length, int[] value) { // retirando if's aninhados
+        if (length > value[value.length-1] && getQuantityOfNumber() >= value[0] && getQuantityOfSmallLetter() >= value[0] && getQuantityOfCapitalLetter() >= value[0]) {
+            return true;
         }
-        if (length > SMALL && getQuantityOfNumber() > ZERO && getQuantityOfSmallLetter() > ZERO
-                || getQuantityOfNumber() > ZERO && getQuantityOfCapitalLetter() > ZERO
-                || getQuantityOfNumber() > ZERO && getQuantityOtherChar() > ZERO
-                || getQuantityOfSmallLetter() > ZERO && getQuantityOfCapitalLetter() > ZERO
-                || getQuantityOfSmallLetter() > ZERO && getQuantityOtherChar() > ZERO
-                || getQuantityOfCapitalLetter() > ZERO && getQuantityOtherChar() > ZERO) {
-            level++;
+        if (getQuantityOfSmallLetter() >= value[0] && getQuantityOfCapitalLetter() >= value[0] && getQuantityOtherChar() >= value[0]) {
+            return true;
         }
-        if (length > DEFAULT && getQuantityOfNumber() > ZERO && getQuantityOfSmallLetter() > ZERO && getQuantityOfCapitalLetter() > ZERO
-                || getQuantityOfNumber() > ZERO && getQuantityOfSmallLetter() > ZERO && getQuantityOtherChar() > ZERO
-                || getQuantityOfNumber() > ZERO && getQuantityOfCapitalLetter() > ZERO && getQuantityOtherChar() > ZERO
-                || getQuantityOfSmallLetter() > ZERO && getQuantityOfCapitalLetter() > ZERO && getQuantityOtherChar() > ZERO) {
-            level++;
+        int characters[] = {getQuantityOfNumber(), getQuantityOfSmallLetter(), getQuantityOfCapitalLetter(), getQuantityOtherChar()};
+        for (int i = 0; i < characters.length/2; i++) {
+            if (characters[0] >= value[0] && characters[i+1] >= value[0] && characters[characters.length-1] >= value[0]) {
+                return true;
+            }
         }
-        if (length > BIG && getQuantityOfNumber() > ZERO && getQuantityOfSmallLetter() > ZERO
-                && getQuantityOfCapitalLetter() > ZERO && getQuantityOtherChar() > ZERO) {
-            level++;
+        return false;
+    }
+
+    private static void twoTypeOfCharacters(int length) {
+        int value1[] = {1, 1, SMALL};
+        if (valueAndQuantity2(length, value1)) {
+            increaseLevel++;
         }
-        if (length > DEFAULT && getQuantityOfNumber() >= SMALL && getQuantityOfSmallLetter() >= SMALL
-                || getQuantityOfNumber() >= SMALL && getQuantityOfCapitalLetter() >= SMALL
-                || getQuantityOfNumber() >= SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL
-                || getQuantityOfSmallLetter() >= SMALL && getQuantityOfCapitalLetter() >= SMALL
-                || getQuantityOfSmallLetter() >= SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL
-                || getQuantityOfCapitalLetter() >= SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL) {
-            level++;
+        int value2[] = {EXTREMELY_SMALL, SMALL, DEFAULT};
+        if (valueAndQuantity2(length, value2)) {
+            increaseLevel++;
         }
-        if (length > BIG && getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfSmallLetter() >= EXTREMELY_SMALL && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL
-                || getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfSmallLetter() >= EXTREMELY_SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL
-                || getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL
-                || getQuantityOfSmallLetter() >= EXTREMELY_SMALL && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL) {
-            level++;
+    }
+    
+    private static boolean valueAndQuantity2(int length, int[] value) { // retirando if's aninhados
+        if (length > value[value.length-1] && getQuantityOfNumber() >= value[1] && getQuantityOfSmallLetter() >= value[1]) {
+            return true;
         }
-        if (length > EXTREMELY_BIG && getQuantityOfNumber() >= EXTREMELY_SMALL && getQuantityOfSmallLetter() >= EXTREMELY_SMALL
-                && getQuantityOfCapitalLetter() >= EXTREMELY_SMALL && getQuantityOtherChar() >= EXTREMELY_SMALL) {
-            level++;
+        if (getQuantityOfCapitalLetter() >= value[1] && getQuantityOtherChar() >= value[0]) {
+            return true;
         }
-        if (getQuantityOtherChar() >= SMALL) {
-            level++;
+        int characters[] = {getQuantityOfNumber(), getQuantityOfSmallLetter(), getQuantityOfCapitalLetter(), getQuantityOtherChar()};
+        for (int i = 0; i < characters.length/2; i++) {
+            if (characters[i] >= value[1] && characters[characters.length-2] >= value[1]) {
+                return true;
+            }
+            if (characters[i] >= value[1] && characters[characters.length-1] >= value[0]) {
+                return true;
+            }
         }
-        if (getQuantityOtherChar() >= DEFAULT) {
-            level++;
+        return false;
+    }
+
+    private static void passwordSize(int length) { // reduzindo 2 if's em 1
+        int characters[] = {getQuantityOfCapitalLetter(), getQuantityOtherChar()};
+        int size[] = {SMALL, DEFAULT};
+        for(int i = 0; i < characters.length; i++){
+            if (length > size[i] && characters[i] > ZERO) {
+                increaseLevel++;
+            }
         }
-        if (length > 12) {
-            level++;
+        if (length > 12 && length < 16) {
+            increaseLevel++;
         }
         if (length >= 16) {
-            level++;
+            increaseLevel = increaseLevel+2;
         }
-        return level;
+    }
+
+    private static void oneTypeOfCharacter() { // reduzindo 4 if's para 2
+        int characters[] = {getQuantityOfNumber(), getQuantityOfSmallLetter(), getQuantityOtherChar()};
+        int quantity[] = {SMALL, DEFAULT};
+        
+        for (int j = 0; j < quantity.length; j++) {
+            if (characters[characters.length-1] >= quantity[j]){
+                increaseLevel++;
+            }
+            if (characters[j] > ZERO){
+                increaseLevel++;
+            } 
+        }
     }
 }
