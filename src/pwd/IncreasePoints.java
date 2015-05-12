@@ -28,7 +28,7 @@ public class IncreasePoints extends CountPoints {
         return level = increaseLevel;
     }
 
-    private static void fourTypeOfCharacters(int length) { // reduzindo 2 if's para 1
+    private static void fourTypeOfCharacters(int length) { 
         int size[] = {1, EXTREMELY_SMALL, BIG, EXTREMELY_BIG};
         for(int i = 0; i < size.length/2; i++){
             if (length > size[i+2] && getQuantityOfNumber() >= size[i] && getQuantityOfSmallLetter() >= size[i]
@@ -49,16 +49,16 @@ public class IncreasePoints extends CountPoints {
         }
     }
 
-    private static boolean valueAndQuantity3(int length, int[] value) { // retirando if's aninhados
+    private static boolean valueAndQuantity3(int length, int[] value) { 
         if (length > value[value.length-1] && getQuantityOfNumber() >= value[0] && getQuantityOfSmallLetter() >= value[0] && getQuantityOfCapitalLetter() >= value[0]) {
             return true;
         }
         if (getQuantityOfSmallLetter() >= value[0] && getQuantityOfCapitalLetter() >= value[0] && getQuantityOtherChar() >= value[0]) {
             return true;
         }
-        int characters[] = {getQuantityOfNumber(), getQuantityOfSmallLetter(), getQuantityOfCapitalLetter(), getQuantityOtherChar()};
-        for (int i = 0; i < characters.length/2; i++) {
-            if (characters[0] >= value[0] && characters[i+1] >= value[0] && characters[characters.length-1] >= value[0]) {
+        int characters[] = {getQuantityOfNumber(), getQuantityOfSmallLetter(), getQuantityOfCapitalLetter()};
+        for (int i = 0; i < characters.length-1; i++) {
+            if (characters[0] >= value[0] && characters[i+1] >= value[0] && getQuantityOtherChar() >= value[0]) {
                 return true;
             }
         }
@@ -83,19 +83,19 @@ public class IncreasePoints extends CountPoints {
         if (getQuantityOfCapitalLetter() >= value[1] && getQuantityOtherChar() >= value[0]) {
             return true;
         }
-        int characters[] = {getQuantityOfNumber(), getQuantityOfSmallLetter(), getQuantityOfCapitalLetter(), getQuantityOtherChar()};
-        for (int i = 0; i < characters.length/2; i++) {
-            if (characters[i] >= value[1] && characters[characters.length-2] >= value[1]) {
+        int characters[] = {getQuantityOfNumber(), getQuantityOfSmallLetter()};
+        for (int i = 0; i < characters.length; i++) {
+            if (characters[i] >= value[1] && getQuantityOfCapitalLetter() >= value[1]) {
                 return true;
             }
-            if (characters[i] >= value[1] && characters[characters.length-1] >= value[0]) {
+            if (characters[i] >= value[1] && getQuantityOtherChar() >= value[0]) {
                 return true;
             }
         }
         return false;
     }
 
-    private static void passwordSize(int length) { // reduzindo 2 if's em 1
+    private static void passwordSize(int length) { 
         int characters[] = {getQuantityOfCapitalLetter(), getQuantityOtherChar()};
         int size[] = {SMALL, DEFAULT};
         for(int i = 0; i < characters.length; i++){
@@ -111,12 +111,11 @@ public class IncreasePoints extends CountPoints {
         }
     }
 
-    private static void oneTypeOfCharacter() { // reduzindo 4 if's para 2
-        int characters[] = {getQuantityOfNumber(), getQuantityOfSmallLetter(), getQuantityOtherChar()};
+    private static void oneTypeOfCharacter() { 
+        int characters[] = {getQuantityOfNumber(), getQuantityOfSmallLetter()};
         int quantity[] = {SMALL, DEFAULT};
-        
         for (int j = 0; j < quantity.length; j++) {
-            if (characters[characters.length-1] >= quantity[j]){
+            if (getQuantityOtherChar() >= quantity[j]){
                 increaseLevel++;
             }
             if (characters[j] > ZERO){

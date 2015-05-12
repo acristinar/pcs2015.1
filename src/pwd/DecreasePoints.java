@@ -33,11 +33,11 @@ public class DecreasePoints extends CountPoints{
         if (getQuantityOfNumber() == length || getQuantityOfSmallLetter() == length || getQuantityOfCapitalLetter() == length) {
             decreaseLevel--;
         }
-        if (length <= DEFAULT) {
+        if (length <= DEFAULT && length > MEDIUM) {
             decreaseLevel--;
         }
         if (length <= MEDIUM) {
-            decreaseLevel--;
+            decreaseLevel = decreaseLevel-2;
         }
     }
 
